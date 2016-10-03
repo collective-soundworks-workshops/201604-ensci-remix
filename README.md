@@ -29,7 +29,7 @@ $ node server/index.js
 ```
 
 ```sh
-$ node PORT=<port> server/index.js
+$ node PORT=\<port\> server/index.js
 ```
 
 ## Clients
@@ -38,9 +38,9 @@ The application consists of two clients, the `display` and the `player`.
 The `display` client hosts three audio players
 
 The `display` client typically runs in a browser on the server machine using the following URL:
- - http://<server address>:<port>/display
+ - http://\<server address\>:\<port\>/display
 
 The `player` client typically runs on a mobile device with the following URL:
- - http://<server address>:<port>/
+ - http://\<server address\>:\<port\>/
 
 Make sure that the Wi-Fi and network connection between the mobile clients, the server, and the display client is high bandwidth and not too busy.
