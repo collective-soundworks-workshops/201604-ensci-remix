@@ -1,73 +1,46 @@
-# Soundworks Application Template
+# ENSCI Remix
 
-> This is a project template for developing [*Soundworks*](https://github.com/collective-soundworks/soundworks/) applications.  
-> The template also includes comprehensive comments in the source files.
+ENSCI Remix is a performance for three players that has been created during design workshop on collaborative motion-based mobile-web applications.
 
-[//]: # (For a complete documentation of the *Soundworks* framework, please refer to http://collective-soundworks.github.io/soundworks/.)
+The application in based on the *Soundworks* framework (http://collective-soundworks.github.io/soundworks/).
 
-## Creating a New Application
+## Installing the Server
 
-To start the development of a new *Soundworks* application, we recommend the following sequence of commands:
+The application requires `Node.js` (>= 0.12, <= 4.x).
+
+Use the following sequence of commands to install the server:
 
 ```sh
-$ git clone https://github.com/collective-soundworks/soundworks-template.git my-soundworks-application
-$ cd my-soundworks-application
-$ rm -Rf .git
+$ git clone https://github.com/collective-soundworks-workshops/201604-ensci-remix.git ensci-remix
+$ cd ensci-remix
 $ npm install
+```
+
+## Running the Server
+
+Use one of the following commands to run the server:
+
+```sh
 $ npm run watch
 ```
 
-If you succeeded to execute all commands without errors, you can start connecting clients - on a mobile phone or a browser simulating a mobile user agent and touch events - to the server.
-
-## Helper Scripts
-
-The template includes a set of scripts to support the development of an application.
-The scripts can be invoked through the `npm run` command:
- * `transpile` - creates an executable application from the ES2015 (ES6) sources
- * `start` - starts the application (i.e. its server).
- * `watch` - starts the server and watches the file system to do the necessary operations while developing
-
-```shell
-$ npm run transpile
-$ npm run start
-$ npm run watch
+```sh
+$ node server/index.js
 ```
 
-In detail, the `transpile` script implies the following operations:
- * *transpile* javascript source files from ES2015 to ES5
- * rebundle (i.e. *browserify*) the client Javascript (ES5) sources
- * recreate the *CSS* files from their *SASS* sources
+```sh
+$ node PORT=<port> server/index.js
+```
 
-The following operations may be performed by the `watch` script depending on the modification of source files:
- * recreate a *CSS* file when a corresponding *SASS* file in the `sass` directory is modified
- * re-*transpile* a modified server source file in the `src/server` directory
- * re-*transpile* and *browserify* a modified client source file in the `src/client` directory
- * re-*transpile* a modified source file used on both, client and server, in the `src/common` directory
+## Clients
 
-## Files and Directories
+The application consists of two clients, the `display` and the `player`.
+The `display` client hosts three audio players
 
-The template consists of the following files and directories you should know about:
- * `bin` - the Node.js scripts *(no need to touch these)*
- * `public` - everything the clients need to run the application
-   * `fonts` - fonts used by the application template *(this is your directory)*
-   * `sounds` - sounds used by the application template *(this is your directory)*
-   * `js` - transpiled javascript files *(do not touch)*
-   * `css` - *CSS* stylesheets automatically created from *SASS* sources *(do not touch)*
-   * . . . add here the assets (images, movies, etc.) used by the clients of your application
- * `sass` - *SASS* stylesheet sources
-   * `main.scss` - includes all other *SASS* files in the directory *(the provided files are described in comments)*
-   * . . . add your styles here (as *SASS* files) and include them into the `main.scss` file
- * `src` - javascript (ES2015) sources *(this is all yours)*
-   * `client` - sources of the application's client side *(contains one directory per client type)*
-     * `player` - sources of the *player* client
-       * `index.js` - main file of the *player* client
-       * . . . files imported by the `index.js` main file
-   * `server` - sources of the application's server side
-     * `index.js` - server side main file *(for all client types)*
-     * . . . files imported by the `index.js` server side main file
- * `html` - template files to generate the application's `index.html` files *(no need to touch)*
- * `package.json` - NPM package file *(modify so that the description and dependencies match your application)*
- * `README.md` - this file *(that you should replace by a file that informs about your application)*
+The `display` client typically runs in a browser on the server machine using the following URL:
+ - http://<server address>:<port>/display
 
-This structure is required by the *Soundworks* framework and the helper scripts.
-The files that are part of the application's implementation (i.e. especially the files in the `src` directories) contain comprehensive explanatory comments.
+The `player` client typically runs on a mobile device with the following URL:
+ - http://<server address>:<port>/
+
+Make sure that the Wi-Fi and network connection between the mobile clients, the server, and the display client is high bandwidth and not too busy.
