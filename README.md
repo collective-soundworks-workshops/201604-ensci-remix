@@ -35,7 +35,7 @@ $ node PORT=<port> server/index.js
 ## Clients
 
 The application consists of two clients, the *display* and the *player*.
-The *display* client hosts three audio players
+The *display* client hosts three audio players that are rmote controlled by three *player* clients.
 
 The *display* client typically runs in a browser on the server machine using the following URL:
  - http://\<server address\>:\<port\>/display
