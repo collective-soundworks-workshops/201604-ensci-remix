@@ -14,6 +14,7 @@ Use the following sequence of commands to install the server:
 $ git clone https://github.com/collective-soundworks-workshops/201604-ensci-remix.git ensci-remix
 $ cd ensci-remix
 $ npm install
+$ npm run transpile
 ```
 
 ## Running the Server
